@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { connectDB } from "../db/connection";
+import _200 from "../lib/http";
 
 export const root = Router()
 
 root.use('/', async (req, res) => {
   await connectDB()
 
-  res.send('Cuak API, Hello debuggers')
+  return _200(res, "CuakDb API, hello debuggers.")
 })
 
